@@ -1,3 +1,4 @@
+import re
 import string
 import random
 
@@ -39,6 +40,10 @@ class NewTrackingNumberSerializer(serializers.ModelSerializer):
         if value <= 0:
             raise serializers.ValidationError("Weight must be a positive number in kilograms, up to three decimal places.")
         return value
+
+    def validate_customer_slug(self, value):
+        if not re.match(r'^[a-z]+(-[a-z]+)*$', value):
+            raise serializers.ValidationError("The customer’s name must be in slug-case/kebab-case")
 
     def create(self, validated_data):
         for i in range(10):
