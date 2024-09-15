@@ -21,7 +21,11 @@ This project provides a Django-based RESTful API that generates unique tracking 
 ### Clone the repository:
 
 ```bash
-git clone git@github.com:DasariVeera/GenerateTrackingNumber.git
+# Clone the repository
+git clone https://github.com/DasariVeera/GenerateTrackingNumber.git
+
+# change directory to GenerateTrackingNumber
+cd GenerateTrackingNumber
 
 # Create virtual environment
 python -m venv venv
@@ -31,6 +35,9 @@ source venv/bin/activate
 
 # Install requirements
 pip install -r requirements.txt
+
+# Create migrations
+python manage.py makemigrations
 
 # Run migrations
 python manage.py migrate
@@ -92,8 +99,25 @@ print(response.json())
 ```
 ### 3. Using Postman
 #### Make GET request providing Query Params
-<img width="529" alt="image" src="https://github.com/user-attachments/assets/5cc5bab2-ea7d-484d-84fc-1c77742a7521">
+<img width="539" alt="image" src="https://github.com/user-attachments/assets/d87b8551-7ce2-4459-9df2-d46eabe36d97">
+
 
 #### response
-<img width="527" alt="image" src="https://github.com/user-attachments/assets/abc1bd0f-25c7-4dc4-8ab7-f6225dfbe468">
+<img width="887" alt="image" src="https://github.com/user-attachments/assets/1fe7fc98-478e-4d06-a10a-1a1baa0e4767">
+
+
+## Production Site
+The production version of this project is deployed at the following URL:
+
+**[Production Site URL](http://15.207.116.125/api/next-tracking-number/)**
+
+You can access the live version of the application through the link above.
+
+### Production Environment Details
+
+Here are some important details about the production environment:
+-  **Hosted on**: AWS EC2
+-  **Web Server**: Gunicorn with NGINX
+-   **Database**: sqlite3
+    
 
