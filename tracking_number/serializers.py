@@ -44,6 +44,7 @@ class NewTrackingNumberSerializer(serializers.ModelSerializer):
     def validate_customer_slug(self, value):
         if not re.match(r'^[a-z]+(-[a-z]+)*$', value):
             raise serializers.ValidationError("The customer’s name must be in slug-case/kebab-case")
+        return value
 
     def create(self, validated_data):
         for i in range(10):
